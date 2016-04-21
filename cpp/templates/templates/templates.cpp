@@ -6,6 +6,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+	cout << "Template Program" << endl;
 	return 0;
 }
 
