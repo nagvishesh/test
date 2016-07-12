@@ -14,11 +14,12 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 #include "Array.h"
 
-using nstd::Array;
+//using nstd::Array;
 
 //explicit template instantiation
 // Cfront option to disable implicit template instantiation
@@ -27,20 +28,22 @@ using nstd::Array;
 // -fno-implicit-templates
 //
 // MS compiler does not support. Did not find any concrete method to do it.
-template class Array < int >;
+template class nstd::Array < int >;
 
 int main(int argc, char* argv[])
 {
 	cout << "Template Program" << endl;
 
-	Array<int> a;
+	nstd::Array<int> a;
 	std::cout << a << std::endl;
 
-	Array<double> dArray;
+	nstd::Array<double> dArray;
 	std::cout << dArray<<std::endl;
 
-	Array<std::string> strArray;
-	std::cout << strArray << std::endl;
+	// String will require special handling
+	// Specialization is the way to go
+	//Array<std::string> strArray;
+	//std::cout << strArray << std::endl;
 
 	return 0;
 }

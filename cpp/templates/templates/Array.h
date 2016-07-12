@@ -15,12 +15,19 @@ namespace nstd{
 		~Array(){
 		}
 
+		unsigned int Size();
+
 		// Bound Friend Function 1:1 Mapping
-		//friend ostream& operator<< <type>(ostream&, const Array<type>&);
+		friend ostream& operator<< <type>(ostream&, const Array<type>&);
 		// Unbound Friend Function 1:n Mapping
-		template <typename t>
-		friend ostream& operator<< /*no <type> here*/(ostream&, const Array<t>&);
+		//template <typename t>
+		//friend ostream& operator<< /*no <type> here*/(ostream&, const Array<t>&);
 	};
+
+	template <typename type, int size>
+	inline unsigned int Array<type,size>::Size(){
+		return array_size;
+	}
 
 	template <typename t>
 	ostream& operator<<(ostream& o, const Array<t>& output){
